@@ -8,8 +8,9 @@ resource "aws_instance" "control_server" {
   instance_type = var.instance_type
 
   key_name = aws_key_pair.project_key.key_name
-
+  user_data = file("${path.module}/userdata/control.sh")
   tags = {
     Name = "Control-Server"
   }
+ 
 }
