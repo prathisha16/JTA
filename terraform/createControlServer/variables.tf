@@ -9,10 +9,6 @@ variable "ami_id" {
 }
 
 variable "instance_type" {
-  default = "t2.micro"
-}
-
-variable "key_name" {
-  description = "AWS Key Pair Name"
-  default     = "project_key"
+  description = "EC2 Instance Type"
+  default     = "t2.micro"
 }
