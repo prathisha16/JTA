@@ -6,9 +6,8 @@ variable "aws_region" {
 variable "ami_id" {
   description = "Ubuntu AMI ID"
 
-  default = "ami-04f167a56786e4b09"
+  default = "ami-052355af2a014bd2c"
 }
-
 variable "instance_type" {
   default = "t2.micro"
 }
