@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/prathisha16/JTA.git'
+            }
+        }
+
+        stage('Terraform Init') {
+            steps {
+                dir('terraform/createRemoteServers') {
+                    sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Validate') {
+            steps {
+                dir('terraform/createRemoteServers') {
+                    sh 'terraform validate'
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                dir('terraform/createRemoteServers') {
+                    sh 'terraform plan'
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                dir('terraform/createRemoteServers') {
+                    sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+    }
+}
