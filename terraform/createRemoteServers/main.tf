@@ -1,5 +1,6 @@
-data "aws_key_pair" "project_key" {
-  key_name = "project_key"
+resource "aws_key_pair" "project_key" {
+  key_name   = "project_key_new"
+  public_key = file("/var/lib/jenkins/project_key.pub")
 }
 
 resource "aws_instance" "web_server_1" {
