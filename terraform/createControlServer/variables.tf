@@ -5,11 +5,14 @@ variable "aws_region" {
 
 variable "ami_id" {
   description = "Ubuntu AMI ID"
-
-  default = "ami-052355af2a014bd2c"
+  default     = "ami-052355af2a014bd2c"
 }
+
 variable "instance_type" {
   default = "t2.micro"
 }
 
-key_name = aws_key_pair.project_key.key_name
+variable "key_name" {
+  description = "AWS Key Pair Name"
+  default     = "project_key"
+}
